@@ -24,11 +24,11 @@ public class AssetSetter {
         gp.obj[1].worldY = 40 * gp.tileSize;
 
         gp.obj[2] = new OBJ_Door(gp);
-        gp.obj[2].worldX = 10 * gp.tileSize;
-        gp.obj[2].worldY = 11 * gp.tileSize;
+        gp.obj[2].worldX = 14 * gp.tileSize;
+        gp.obj[2].worldY = 16 * gp.tileSize;
 
         gp.obj[3] = new OBJ_Drawer(gp);
-        gp.obj[3].worldX = 7 * gp.tileSize;
-        gp.obj[3].worldY = 7 * gp.tileSize;
+        gp.obj[3].worldX = 10 * gp.tileSize;
+        gp.obj[3].worldY = 11 * gp.tileSize;
     }
 }

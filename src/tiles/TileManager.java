@@ -21,21 +21,57 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[10];
+        tile = new Tile[60];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
-        loadMap("/maps/mapa_50x50_boy_of_acre.txt");
+        loadMap("/maps/world_v1.txt");
     }
     public void getTileImage() {
 
-        setup(0, "Grass", false);
-        setup(1, "Water", true);//collision stone
-        setup(2, "Stone", false);//colision water
-        setup(3, "Sand", false);
-        setup(4, "Dirt", false);
-        setup(5, "Tree", true);
-        setup(6, "Asphalt", false);
+        setup(10, "Grass", false);
+        setup(11, "Grass_Bottom", false);
+        setup(12, "Grass_Corner_LBottom", false);
+        setup(13, "Grass_Corner_LTop", false);
+        setup(14, "Grass_Corner_RBottom", false);
+        setup(15, "Grass_Corner_RTop", false);
+        setup(16, "Grass_Left", false);
+        setup(17, "Grass_Right", false);
+        setup(18, "Grass_Sand_RBottom_Corner", false);
+        setup(19, "Grass_Sand_RTop_Corner", false);
+        setup(20, "Grass_Sand_LBottom_Corner", false);
+        setup(21, "Grass_Sand_LTop_Corner", false);
+        setup(22, "Grass_Top", false);
+        setup(23, "Sand", false);
+        setup(24, "Sand_Top", false);
+        setup(25, "Sand_Bottom", false);
+        setup(26, "Sand_Left", false);
+        setup(27, "Sand_Right", false);
+        setup(28, "Sand_Corner_LBottom", false);
+        setup(29, "Sand_Corner_RBottom", false);
+        setup(30, "Sand_Corner_RTop", false);
+        setup(31, "Sand_Corner_LTop", false);
+        setup(32, "Dirt", false);
+        setup(33, "Stone", false);
+        setup(34, "Tree", true);
+        setup(35, "Wall", false);
+        setup(36, "Water", true);
+        setup(37, "Water_Grass_LBottom_Corner", true);
+        setup(38, "Water_Grass_LTop_Corner", true);
+        setup(39, "Water_Grass_RBottom_Corner", true);
+        setup(40, "Water_Grass_TopR", true);
+        setup(41, "Concrete_Horizontal", false);
+        setup(42, "Whole_Calcada", false);
+        setup(43, "Street_CornerLU", false);
+        setup(44, "Street_Horizontal", false);
+        setup(45, "Street_Vertical", false);
+        setup(46, "Calcada_Top", false);
+        setup(47, "Calcada_Bottom", false);
+        setup(48, "Concrete_CornerLU", false);
+        setup(49, "Concrete_CornerLB", false);
+        setup(50, "Concrete_CornerRU", false);
+        setup(51, "Concrete_CornerRB", false);
+        setup(52, "Concrete_Vertical", false);
 
     }
 

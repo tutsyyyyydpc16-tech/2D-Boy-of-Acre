@@ -22,6 +22,8 @@ public class Player extends Entity{
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
+        super(gp);
+
         this.gp = gp;
         this.keyH = keyH;
 
@@ -46,29 +48,14 @@ public class Player extends Entity{
 
     public void getPlayerImage() {
 
-        up1 = setup("up_walk");
-        up2 = setup("up_walk2");
-        down1 = setup("down_walk");
-        down2 = setup("down_walk2");
-        left1 = setup("left_walk");
-        left2 = setup("left_walk2");
-        right1 = setup("right_walk");
-        right2 = setup("right_walk2");
-    }
-
-    public BufferedImage setup(String imageName) {
-
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage image = null;
-
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream("/player/" + imageName + ".png"));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return image;
+        up1 = setup("/player/up_walk");
+        up2 = setup("/player/up_walk2");
+        down1 = setup("/player/down_walk");
+        down2 = setup("/player/down_walk2");
+        left1 = setup("/player/left_walk");
+        left2 = setup("/player/left_walk2");
+        right1 = setup("/player/right_walk");
+        right2 = setup("/player/right_walk2");
     }
 
     public void update() {
@@ -100,6 +87,10 @@ public class Player extends Entity{
             //CHECK OBJECT COLLISION
             int objIndex = gp.cChecker.checkObject(this, true);
             pickUpObject(objIndex);
+
+            //CHECK NPC COLLISION
+            int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            interactNPC(npcIndex);
 
             if(collisonOn == false) {
 
@@ -135,6 +126,13 @@ public class Player extends Entity{
     }
 
     public void pickUpObject(int i) {
+
+        if(i != 999) {
+
+        }
+    }
+
+    public void interactNPC(int i) {
 
         if(i != 999) {
 

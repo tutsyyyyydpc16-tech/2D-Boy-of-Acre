@@ -13,6 +13,7 @@ public class NPC_OldMan extends Entity{
         speed = 1;
 
         getImage();
+        setDialogue();
     }
 
     public void getImage() {
@@ -25,6 +26,15 @@ public class NPC_OldMan extends Entity{
         left2 = setup("/npc/oldman_left_2");
         right1 = setup("/npc/oldman_right_1");
         right2 = setup("/npc/oldman_right_2");
+    }
+
+    public void setDialogue() {
+
+        dialogues[0] = "Hellooooooooooo.";
+        dialogues[1] = "This world is so small.";
+        dialogues[2] = "Where is the city?";
+        dialogues[3] = "I will die for sure.";
+        dialogues[4] = "jnvjkvnjnvjnjnfz\njefnvndcmopDIER\n3IEFWEFEKFOEKFOERKGERIRGJEIGJ\nROGREGRGORGIGEORKOEKFOERKDDOF\nKOPFKRGEGO";
     }
 
     public void setAction() {
@@ -52,6 +62,11 @@ public class NPC_OldMan extends Entity{
             actionLockCounter = 0;
         }
 
+    }
+
+    public void speak() {
+
+        super.speak();
     }
 
 }

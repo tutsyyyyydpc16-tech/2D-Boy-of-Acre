@@ -130,16 +130,31 @@ public class UI {
 
     public void drawPauseScreen() {
 
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,80F));
-        String text = "PAUSED";
-        int x = getXforCenteredText(text);
-        int y = gp.screenHeight/2;
+        int x = 250;
+        int y = 150;
+        int width = gp.screenWidth/3;
+        int height = gp.screenHeight/2;
+        g2.setColor(new Color(0, 0 ,0));
+        g2.fillRect(x, y, width, height);
 
-        for(String line : currentDialogue.split("\n")) {
+        drawSubWindow(x, y, width, height);
 
-            g2.drawString(line, x, y);
-            y += 40;
-        }
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+        String text = "Pause";
+        x += gp.tileSize*1.5;
+        y += gp.tileSize;
+
+        //SHADOW
+        g2.setColor(new Color(50, 50 ,50));
+        g2.drawString(text, x+5, y+5);
+
+        //MAIN COLOR
+        g2.setColor(Color.white);
+        g2.drawString(text, x, y);
+
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+
     }
 
     public void drawDialogueScreen() {
@@ -157,7 +172,11 @@ public class UI {
         y += gp.tileSize;
         g2.drawString(currentDialogue, x, y);
 
+        for(String line : currentDialogue.split("\n")) {
 
+            g2.drawString(line, x, y);
+            y += 40;
+        }
     }
 
     public void drawOptionsScreen() {
@@ -215,12 +234,12 @@ public class UI {
 
         Color c = new Color(0, 0, 0, 220);
         g2.setColor(c);
-        g2.fillRoundRect(x, y, width, height, 35, 35);
+        g2.fillRoundRect(x, y, width, height, 0, 0);
 
         c = new Color(255, 255, 255);
         g2.setColor(c);
         g2.setStroke(new BasicStroke(5));
-        g2.drawRoundRect(x+5, y+5, width-10, height-10, 25, 25);
+        g2.drawRoundRect(x+5, y+5, width-10, height-10, 0, 0);
     }
 
     public int getXforCenteredText(String text) {

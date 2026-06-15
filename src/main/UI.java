@@ -47,13 +47,16 @@ public class UI {
 
             //TITLE STATE
             if(gp.gameState == gp.titleState) {
-
                 drawTitleScreen();
             }
 
             //PLAY STATE
             if(gp.gameState == gp.playState) {
 
+            }
+            //OPTIONS STATE
+            if(gp.gameState == gp.optionsState) {
+                drawOptionsScreen();
             }
             //PAUSE STATE
             if(gp.gameState == gp.pauseState) {
@@ -154,6 +157,58 @@ public class UI {
         y += gp.tileSize;
         g2.drawString(currentDialogue, x, y);
 
+
+    }
+
+    public void drawOptionsScreen() {
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,72F));
+        String text = "Options";
+        int x = gp.tileSize;
+        int y = gp.tileSize*2;
+
+        //SHADOW
+        g2.setColor(new Color(50, 50 ,50));
+        g2.drawString(text, x+5, y+5);
+
+        //MAIN COLOR
+        g2.setColor(Color.white);
+        g2.drawString(text, x, y);
+
+        //MENU
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+
+        text = "VOLUME";
+        x = gp.tileSize;
+        y += gp.tileSize*2;
+        g2.drawString(text, x, y);
+        if(commandNum == 0){
+            g2.drawString(">", x- gp.tileSize, y);
+        }
+
+        text = "LANGUAGE";
+        x = gp.tileSize;
+        y += gp.tileSize*1.5;
+        g2.drawString(text, x, y);
+        if(commandNum == 1){
+            g2.drawString(">", x- gp.tileSize, y);
+        }
+
+        text = "IDK";
+        x = gp.tileSize;
+        y += gp.tileSize*1.5;
+        g2.drawString(text, x, y);
+        if(commandNum == 2){
+            g2.drawString(">", x- gp.tileSize, y);
+        }
+
+        text = "BACK";
+        x = gp.tileSize;
+        y += gp.tileSize*2;
+        g2.drawString(text, x, y);
+        if(commandNum == 3){
+            g2.drawString(">", x- gp.tileSize, y);
+        }
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

@@ -2,6 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 
 public class KeyHandler implements KeyListener {
 
@@ -21,6 +22,38 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         int code = e.getKeyCode();
+
+        //TITLE STATE
+        if(gp.gameState == gp.titleState) {
+
+            if(code == KeyEvent.VK_W) {
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum < 0) {
+                    gp.ui.commandNum = 3;
+                }
+            }
+            if(code == KeyEvent.VK_S) {
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum > 3) {
+                    gp.ui.commandNum = 0;
+                }
+            }
+            if(code == KeyEvent.VK_ENTER) {
+
+                if(gp.ui.commandNum == 0) {
+                    gp.gameState = gp.playState;
+                }
+                if(gp.ui.commandNum == 1) {
+
+                }
+                if(gp.ui.commandNum == 2) {
+
+                }
+                if(gp.ui.commandNum == 3) {
+                    System.exit(0);
+                }
+            }
+        }
 
         //PLAY STATE
         if(gp.gameState == gp.playState) {
